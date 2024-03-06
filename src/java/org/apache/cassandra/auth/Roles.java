@@ -189,4 +189,11 @@ public class Roles
                                   .map(RoleResource::getRoleName)
                                   .collect(Collectors.toSet()));
    }
+
+    public static Set<RoleResource> getAllSuperUsers()
+    {
+        return getAllRoles().stream()
+                            .filter(Roles::hasSuperuserStatus)
+                            .collect(Collectors.toSet());
+    }
 }
